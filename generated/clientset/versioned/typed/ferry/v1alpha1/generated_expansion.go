@@ -20,3 +20,5 @@ package v1alpha1
 type ClusterInformationExpansion interface{}
 
 type FerryPolicyExpansion interface{}
+
+type MappingRuleExpansion interface{}

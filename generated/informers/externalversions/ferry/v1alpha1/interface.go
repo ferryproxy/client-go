@@ -27,6 +27,8 @@ type Interface interface {
 	ClusterInformations() ClusterInformationInformer
 	// FerryPolicies returns a FerryPolicyInformer.
 	FerryPolicies() FerryPolicyInformer
+	// MappingRules returns a MappingRuleInformer.
+	MappingRules() MappingRuleInformer
 }
 
 type version struct {
@@ -48,4 +50,9 @@ func (v *version) ClusterInformations() ClusterInformationInformer {
 // FerryPolicies returns a FerryPolicyInformer.
 func (v *version) FerryPolicies() FerryPolicyInformer {
 	return &ferryPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// MappingRules returns a MappingRuleInformer.
+func (v *version) MappingRules() MappingRuleInformer {
+	return &mappingRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

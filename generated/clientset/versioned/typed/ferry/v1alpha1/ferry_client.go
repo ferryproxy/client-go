@@ -29,6 +29,7 @@ type FerryV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	ClusterInformationsGetter
 	FerryPoliciesGetter
+	MappingRulesGetter
 }
 
 // FerryV1alpha1Client is used to interact with features provided by the ferry group.
@@ -42,6 +43,10 @@ func (c *FerryV1alpha1Client) ClusterInformations(namespace string) ClusterInfor
 
 func (c *FerryV1alpha1Client) FerryPolicies(namespace string) FerryPolicyInterface {
 	return newFerryPolicies(c, namespace)
+}
+
+func (c *FerryV1alpha1Client) MappingRules(namespace string) MappingRuleInterface {
+	return newMappingRules(c, namespace)
 }
 
 // NewForConfig creates a new FerryV1alpha1Client for the given config.

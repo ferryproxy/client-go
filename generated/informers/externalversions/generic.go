@@ -56,6 +56,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Ferry().V1alpha1().ClusterInformations().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("ferrypolicies"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Ferry().V1alpha1().FerryPolicies().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("mappingrules"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Ferry().V1alpha1().MappingRules().Informer()}, nil
 
 	}
 
