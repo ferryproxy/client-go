@@ -32,3 +32,11 @@ type FerryPolicyListerExpansion interface{}
 // FerryPolicyNamespaceListerExpansion allows custom methods to be added to
 // FerryPolicyNamespaceLister.
 type FerryPolicyNamespaceListerExpansion interface{}
+
+// MappingRuleListerExpansion allows custom methods to be added to
+// MappingRuleLister.
+type MappingRuleListerExpansion interface{}
+
+// MappingRuleNamespaceListerExpansion allows custom methods to be added to
+// MappingRuleNamespaceLister.
+type MappingRuleNamespaceListerExpansion interface{}

@@ -35,6 +35,10 @@ func (c *FakeFerryV1alpha1) FerryPolicies(namespace string) v1alpha1.FerryPolicy
 	return &FakeFerryPolicies{c, namespace}
 }
 
+func (c *FakeFerryV1alpha1) MappingRules(namespace string) v1alpha1.MappingRuleInterface {
+	return &FakeMappingRules{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeFerryV1alpha1) RESTClient() rest.Interface {
