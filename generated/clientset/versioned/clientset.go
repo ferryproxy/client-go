@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net/http"
 
-	ferryv1alpha1 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/ferry/v1alpha1"
+	trafficv1alpha2 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
@@ -29,19 +29,19 @@ import (
 
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
-	FerryV1alpha1() ferryv1alpha1.FerryV1alpha1Interface
+	TrafficV1alpha2() trafficv1alpha2.TrafficV1alpha2Interface
 }
 
 // Clientset contains the clients for groups. Each group has exactly one
 // version included in a Clientset.
 type Clientset struct {
 	*discovery.DiscoveryClient
-	ferryV1alpha1 *ferryv1alpha1.FerryV1alpha1Client
+	trafficV1alpha2 *trafficv1alpha2.TrafficV1alpha2Client
 }
 
-// FerryV1alpha1 retrieves the FerryV1alpha1Client
-func (c *Clientset) FerryV1alpha1() ferryv1alpha1.FerryV1alpha1Interface {
-	return c.ferryV1alpha1
+// TrafficV1alpha2 retrieves the TrafficV1alpha2Client
+func (c *Clientset) TrafficV1alpha2() trafficv1alpha2.TrafficV1alpha2Interface {
+	return c.trafficV1alpha2
 }
 
 // Discovery retrieves the DiscoveryClient
@@ -59,6 +59,10 @@ func (c *Clientset) Discovery() discovery.DiscoveryInterface {
 // where httpClient was generated with rest.HTTPClientFor(c).
 func NewForConfig(c *rest.Config) (*Clientset, error) {
 	configShallowCopy := *c
+
+	if configShallowCopy.UserAgent == "" {
+		configShallowCopy.UserAgent = rest.DefaultKubernetesUserAgent()
+	}
 
 	// share the transport between all clients
 	httpClient, err := rest.HTTPClientFor(&configShallowCopy)
@@ -84,7 +88,7 @@ func NewForConfigAndClient(c *rest.Config, httpClient *http.Client) (*Clientset,
 
 	var cs Clientset
 	var err error
-	cs.ferryV1alpha1, err = ferryv1alpha1.NewForConfigAndClient(&configShallowCopy, httpClient)
+	cs.trafficV1alpha2, err = trafficv1alpha2.NewForConfigAndClient(&configShallowCopy, httpClient)
 	if err != nil {
 		return nil, err
 	}
@@ -109,7 +113,7 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 // New creates a new Clientset for the given RESTClient.
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
-	cs.ferryV1alpha1 = ferryv1alpha1.New(c)
+	cs.trafficV1alpha2 = trafficv1alpha2.New(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClient(c)
 	return &cs

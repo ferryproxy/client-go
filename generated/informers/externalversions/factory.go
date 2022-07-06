@@ -23,8 +23,8 @@ import (
 	time "time"
 
 	versioned "github.com/ferry-proxy/client-go/generated/clientset/versioned"
-	ferry "github.com/ferry-proxy/client-go/generated/informers/externalversions/ferry"
 	internalinterfaces "github.com/ferry-proxy/client-go/generated/informers/externalversions/internalinterfaces"
+	traffic "github.com/ferry-proxy/client-go/generated/informers/externalversions/traffic"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -171,9 +171,9 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
-	Ferry() ferry.Interface
+	Traffic() traffic.Interface
 }
 
-func (f *sharedInformerFactory) Ferry() ferry.Interface {
-	return ferry.New(f, f.namespace, f.tweakListOptions)
+func (f *sharedInformerFactory) Traffic() traffic.Interface {
+	return traffic.New(f, f.namespace, f.tweakListOptions)
 }

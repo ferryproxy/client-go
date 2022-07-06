@@ -20,7 +20,7 @@ package externalversions
 import (
 	"fmt"
 
-	v1alpha1 "github.com/ferry-proxy/api/apis/ferry/v1alpha1"
+	v1alpha2 "github.com/ferry-proxy/api/apis/traffic/v1alpha2"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )
@@ -51,13 +51,13 @@ func (f *genericInformer) Lister() cache.GenericLister {
 // TODO extend this to unknown resources with a client pool
 func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource) (GenericInformer, error) {
 	switch resource {
-	// Group=ferry, Version=v1alpha1
-	case v1alpha1.SchemeGroupVersion.WithResource("clusterinformations"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Ferry().V1alpha1().ClusterInformations().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("ferrypolicies"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Ferry().V1alpha1().FerryPolicies().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("mappingrules"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Ferry().V1alpha1().MappingRules().Informer()}, nil
+	// Group=traffic, Version=v1alpha2
+	case v1alpha2.SchemeGroupVersion.WithResource("hubs"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Traffic().V1alpha2().Hubs().Informer()}, nil
+	case v1alpha2.SchemeGroupVersion.WithResource("routes"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Traffic().V1alpha2().Routes().Informer()}, nil
+	case v1alpha2.SchemeGroupVersion.WithResource("routepolicies"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Traffic().V1alpha2().RoutePolicies().Informer()}, nil
 
 	}
 

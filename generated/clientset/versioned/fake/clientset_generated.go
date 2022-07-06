@@ -19,8 +19,8 @@ package fake
 
 import (
 	clientset "github.com/ferry-proxy/client-go/generated/clientset/versioned"
-	ferryv1alpha1 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/ferry/v1alpha1"
-	fakeferryv1alpha1 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/ferry/v1alpha1/fake"
+	trafficv1alpha2 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
+	faketrafficv1alpha2 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -78,7 +78,7 @@ var (
 	_ testing.FakeClient  = &Clientset{}
 )
 
-// FerryV1alpha1 retrieves the FerryV1alpha1Client
-func (c *Clientset) FerryV1alpha1() ferryv1alpha1.FerryV1alpha1Interface {
-	return &fakeferryv1alpha1.FakeFerryV1alpha1{Fake: &c.Fake}
+// TrafficV1alpha2 retrieves the TrafficV1alpha2Client
+func (c *Clientset) TrafficV1alpha2() trafficv1alpha2.TrafficV1alpha2Interface {
+	return &faketrafficv1alpha2.FakeTrafficV1alpha2{Fake: &c.Fake}
 }

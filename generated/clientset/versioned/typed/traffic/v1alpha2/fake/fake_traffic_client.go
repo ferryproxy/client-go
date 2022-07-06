@@ -18,30 +18,30 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha1 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/ferry/v1alpha1"
+	v1alpha2 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )
 
-type FakeFerryV1alpha1 struct {
+type FakeTrafficV1alpha2 struct {
 	*testing.Fake
 }
 
-func (c *FakeFerryV1alpha1) ClusterInformations(namespace string) v1alpha1.ClusterInformationInterface {
-	return &FakeClusterInformations{c, namespace}
+func (c *FakeTrafficV1alpha2) Hubs(namespace string) v1alpha2.HubInterface {
+	return &FakeHubs{c, namespace}
 }
 
-func (c *FakeFerryV1alpha1) FerryPolicies(namespace string) v1alpha1.FerryPolicyInterface {
-	return &FakeFerryPolicies{c, namespace}
+func (c *FakeTrafficV1alpha2) Routes(namespace string) v1alpha2.RouteInterface {
+	return &FakeRoutes{c, namespace}
 }
 
-func (c *FakeFerryV1alpha1) MappingRules(namespace string) v1alpha1.MappingRuleInterface {
-	return &FakeMappingRules{c, namespace}
+func (c *FakeTrafficV1alpha2) RoutePolicies(namespace string) v1alpha2.RoutePolicyInterface {
+	return &FakeRoutePolicies{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
-func (c *FakeFerryV1alpha1) RESTClient() rest.Interface {
+func (c *FakeTrafficV1alpha2) RESTClient() rest.Interface {
 	var ret *rest.RESTClient
 	return ret
 }
