@@ -1,5 +1,5 @@
 /*
-Copyright 2022 Shiming Zhang.
+Copyright 2022 FerryProxy.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net/http"
 
-	trafficv1alpha2 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
+	trafficv1alpha2 "github.com/ferryproxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

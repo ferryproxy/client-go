@@ -1,5 +1,5 @@
 /*
-Copyright 2022 Shiming Zhang.
+Copyright 2022 FerryProxy.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha2 "github.com/ferry-proxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
+	v1alpha2 "github.com/ferryproxy/client-go/generated/clientset/versioned/typed/traffic/v1alpha2"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )

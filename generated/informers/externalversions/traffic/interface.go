@@ -1,5 +1,5 @@
 /*
-Copyright 2022 Shiming Zhang.
+Copyright 2022 FerryProxy.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@ limitations under the License.
 package traffic
 
 import (
-	internalinterfaces "github.com/ferry-proxy/client-go/generated/informers/externalversions/internalinterfaces"
-	v1alpha2 "github.com/ferry-proxy/client-go/generated/informers/externalversions/traffic/v1alpha2"
+	internalinterfaces "github.com/ferryproxy/client-go/generated/informers/externalversions/internalinterfaces"
+	v1alpha2 "github.com/ferryproxy/client-go/generated/informers/externalversions/traffic/v1alpha2"
 )
 
 // Interface provides access to each of this group's versions.

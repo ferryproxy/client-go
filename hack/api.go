@@ -4,5 +4,5 @@
 package api
 
 import (
-	_ "github.com/ferry-proxy/api"
+	_ "github.com/ferryproxy/api"
 )

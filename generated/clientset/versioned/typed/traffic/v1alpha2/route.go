@@ -1,5 +1,5 @@
 /*
-Copyright 2022 Shiming Zhang.
+Copyright 2022 FerryProxy.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ import (
 	"context"
 	"time"
 
-	v1alpha2 "github.com/ferry-proxy/api/apis/traffic/v1alpha2"
-	scheme "github.com/ferry-proxy/client-go/generated/clientset/versioned/scheme"
+	v1alpha2 "github.com/ferryproxy/api/apis/traffic/v1alpha2"
+	scheme "github.com/ferryproxy/client-go/generated/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"

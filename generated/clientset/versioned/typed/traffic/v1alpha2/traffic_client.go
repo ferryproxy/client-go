@@ -1,5 +1,5 @@
 /*
-Copyright 2022 Shiming Zhang.
+Copyright 2022 FerryProxy.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ package v1alpha2
 import (
 	"net/http"
 
-	v1alpha2 "github.com/ferry-proxy/api/apis/traffic/v1alpha2"
-	"github.com/ferry-proxy/client-go/generated/clientset/versioned/scheme"
+	v1alpha2 "github.com/ferryproxy/api/apis/traffic/v1alpha2"
+	"github.com/ferryproxy/client-go/generated/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
