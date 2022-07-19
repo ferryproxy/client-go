@@ -3,7 +3,7 @@ module github.com/ferryproxy/client-go
 go 1.18
 
 require (
-	github.com/ferryproxy/api v0.4.0
+	github.com/ferryproxy/api v0.4.1
 	k8s.io/apimachinery v0.24.2
 	k8s.io/client-go v0.24.2
 	k8s.io/code-generator v0.24.2
